@@ -1,0 +1,417 @@
+
+    <html>
+    <head>
+        <title>ReconGuard Security Report</title>
+        <style>
+            body { font-family: Arial; margin: 40px; background: #f4f6f8; }
+            h1, h2 { color: #1a1a1a; }
+            table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #2c3e50; color: white; }
+            .score-box {
+                padding: 20px;
+                background: #ffffff;
+                border-left: 6px solid #e74c3c;
+                margin-bottom: 30px;
+                font-size: 18px;
+            }
+            .chain {
+                background: white;
+                padding: 15px;
+                margin-bottom: 15px;
+                border-left: 4px solid #2980b9;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>ReconGuard Executive Security Report</h1>
+
+        <div class="score-box">
+            <strong>Overall Numeric Risk Score:</strong> 9.49 / 10<br>
+            <strong>Compromise Probability:</strong> 94.9%
+        </div>
+
+        <h2>Services</h2>
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Port</th>
+                <th>Risk</th>
+                <th>Score</th>
+                <th>Exposure</th>
+            </tr>
+            
+        <tr>
+            <td>UNKNOWN</td>
+            <td>323</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        <tr>
+            <td>DNS</td>
+            <td>53</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        <tr>
+            <td>PostgreSQL</td>
+            <td>5432</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        <tr>
+            <td>UNKNOWN</td>
+            <td>44593</td>
+            <td>UNKNOWN</td>
+            <td>1.0</td>
+            <td>UNKNOWN</td>
+        </tr>
+        
+        <tr>
+            <td>UNKNOWN</td>
+            <td>1883</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        <tr>
+            <td>Redis</td>
+            <td>6379</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        <tr>
+            <td>DNS</td>
+            <td>53</td>
+            <td>CRITICAL_CHAINED</td>
+            <td>10.0</td>
+            <td>EXTERNAL_CONFIRMED</td>
+        </tr>
+        
+        </table>
+
+        <h2>Privilege Escalation Findings</h2>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Risk</th>
+                <th>Reason</th>
+            </tr>
+            
+        <tr>
+            <td>SUDO_FULL_ACCESS</td>
+            <td>CRITICAL</td>
+            <td>User may run all commands as root</td>
+        </tr>
+        
+        <tr>
+            <td>DOCKER_GROUP_ABUSE</td>
+            <td>CRITICAL</td>
+            <td>User is in docker group → root access possible</td>
+        </tr>
+        
+        <tr>
+            <td>KERNEL_INFO</td>
+            <td>INFO</td>
+            <td>Kernel version collected for exploit surface analysis</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>HIGH</td>
+            <td>World-writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        <tr>
+            <td>PATH_HIJACK</td>
+            <td>MEDIUM</td>
+            <td>Writable directory present in PATH</td>
+        </tr>
+        
+        </table>
+
+        <h2>Attack Chains</h2>
+        
+        <div class="chain">
+            <h4>UNKNOWN (Port 323)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed UNKNOWN service on port 323<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+        <div class="chain">
+            <h4>DNS (Port 53)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed DNS service on port 53<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+        <div class="chain">
+            <h4>PostgreSQL (Port 5432)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed PostgreSQL service on port 5432<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+        <div class="chain">
+            <h4>UNKNOWN (Port 1883)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed UNKNOWN service on port 1883<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+        <div class="chain">
+            <h4>Redis (Port 6379)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed Redis service on port 6379<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1059 - Command and Scripting Interpreter<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+        <div class="chain">
+            <h4>DNS (Port 53)</h4>
+            <p><strong>Impact:</strong> ROOT_COMPROMISE</p>
+            <p><strong>Steps:</strong><br>Exploit exposed DNS service on port 53<br>Abuse docker group membership to escape container</p>
+            <p><strong>MITRE Mapping:</strong><br>T1190 - Exploit Public-Facing Application<br>T1611 - Escape to Host<br>T1078 - Privilege Account Abuse</p>
+        </div>
+        
+
+        <div class="card">
+        <h2>Recommended Actions</h2>
+        <table>
+        <tr>
+            <th>Priority</th>
+            <th>Issue</th>
+            <th>Recommended Action</th>
+        </tr>
+            
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>UNKNOWN exposed on port 323</td>
+            <td>Restrict public exposure using firewall rules or disable if not required.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>DNS exposed on port 53</td>
+            <td>Restrict public exposure using firewall rules or disable if not required.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>PostgreSQL exposed on port 5432</td>
+            <td>Restrict public exposure using firewall rules or disable if not required.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>UNKNOWN exposed on port 1883</td>
+            <td>Restrict public exposure using firewall rules or disable if not required.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>Redis exposed on port 6379</td>
+            <td>Restrict public exposure using firewall rules or disable if not required.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>Unrestricted sudo access</td>
+            <td>Restrict sudo permissions using least privilege principle.</td>
+        </tr>
+        
+        <tr>
+            <td>IMMEDIATE</td>
+            <td>User in docker group</td>
+            <td>Remove user from docker group or enforce rootless containers.</td>
+        </tr>
+        
+        <tr>
+            <td>HIGH</td>
+            <td>Writable directory in PATH</td>
+            <td>Remove write permissions or reorder PATH to prevent hijacking.</td>
+        </tr>
+        
+        </table>
+        </div>
+    </body>
+    </html>
+    

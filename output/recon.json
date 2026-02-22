@@ -1,0 +1,658 @@
+{
+    "metadata": {
+        "scan_id": "e57b3536-21ae-46bf-99e2-cd91f2c94779",
+        "timestamp": "2026-02-22T12:20:37.998977",
+        "scanner_version": "ReconGuard v0.1"
+    },
+    "system": {
+        "os": "Linux",
+        "os_version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025",
+        "kernel": "6.6.87.2-microsoft-standard-WSL2",
+        "architecture": "x86_64",
+        "hostname": "LAPTOP-AKG6B6TB",
+        "current_user": "devesh"
+    },
+    "network": {
+        "interfaces": [
+            {
+                "interface": "lo",
+                "ip_address": "127.0.0.1/8"
+            },
+            {
+                "interface": "lo",
+                "ip_address": "10.255.255.254/32"
+            },
+            {
+                "interface": "eth0",
+                "ip_address": "172.21.30.120/20"
+            },
+            {
+                "interface": "docker0",
+                "ip_address": "172.17.0.1/16"
+            },
+            {
+                "interface": "br-e31a944bd4d3",
+                "ip_address": "172.18.0.1/16"
+            }
+        ]
+    },
+    "risk_summary": {
+        "CRITICAL": 1,
+        "HIGH": 1,
+        "MEDIUM": 0,
+        "LOW": 2,
+        "UNKNOWN": 3
+    },
+    "overall_numeric_score": 9.49,
+    "compromise_probability_percent": 94.9,
+    "services": [
+        {
+            "protocol": "udp",
+            "port": 323,
+            "service": "UNKNOWN",
+            "risk": "UNKNOWN",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "UNKNOWN",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        },
+        {
+            "protocol": "udp",
+            "port": 53,
+            "service": "DNS",
+            "risk": "LOW",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "LOW",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        },
+        {
+            "protocol": "tcp",
+            "port": 5432,
+            "service": "PostgreSQL",
+            "risk": "HIGH",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "HIGH",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        },
+        {
+            "protocol": "tcp",
+            "port": 44593,
+            "service": "UNKNOWN",
+            "risk": "UNKNOWN",
+            "process": "users:((\"node\",pid=1074,fd=22))",
+            "cves": [],
+            "base_risk": "UNKNOWN",
+            "exposure": {
+                "level": "UNKNOWN",
+                "reason": "Insufficient exposure data",
+                "confidence": "LOW"
+            },
+            "adjusted_risk": "UNKNOWN",
+            "chain_escalated": false,
+            "numeric_score": 1.0,
+            "risk_label": "LOW"
+        },
+        {
+            "protocol": "tcp",
+            "port": 1883,
+            "service": "UNKNOWN",
+            "risk": "UNKNOWN",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "UNKNOWN",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        },
+        {
+            "protocol": "tcp",
+            "port": 6379,
+            "service": "Redis",
+            "risk": "CRITICAL",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "CRITICAL",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        },
+        {
+            "protocol": "tcp",
+            "port": 53,
+            "service": "DNS",
+            "risk": "LOW",
+            "process": "0.0.0.0:*",
+            "cves": [],
+            "base_risk": "CRITICAL_CHAINED",
+            "exposure": {
+                "level": "EXTERNAL_CONFIRMED",
+                "reason": "Service bound to all network interfaces",
+                "confidence": "HIGH"
+            },
+            "adjusted_risk": "LOW",
+            "chain_escalated": true,
+            "numeric_score": 10.0,
+            "risk_label": "CRITICAL"
+        }
+    ],
+    "privesc_findings": [
+        {
+            "type": "SUDO_FULL_ACCESS",
+            "risk": "CRITICAL",
+            "reason": "User may run all commands as root"
+        },
+        {
+            "type": "DOCKER_GROUP_ABUSE",
+            "risk": "CRITICAL",
+            "reason": "User is in docker group \u2192 root access possible"
+        },
+        {
+            "type": "KERNEL_INFO",
+            "kernel_version": "6.6.87.2-microsoft-standard-WSL2",
+            "risk": "INFO",
+            "reason": "Kernel version collected for exploit surface analysis"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/recon_guard/venv/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/.vscode-server/bin/072586267e68ece9a47aa43f8c108e0dcbf44622/bin/remote-cli",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/Downloads",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/hadoop-3.4.0/bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Python/Python313/Scripts/",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Python/Python313/",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Python/Launcher/",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Python/Python313",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Python/Python313/Scripts",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/activestate/cache/bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/ActiveState/StateTool/release/bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/.console-ninja/.bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Microsoft/WindowsApps",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Programs/Microsoft VS Code/bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Microsoft/WinGet/Packages/Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/src/flutter_windows_3.24.0-stable/flutter/bin",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Local/Microsoft/WindowsApps",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/mnt/c/Users/deves/AppData/Roaming/npm",
+            "risk": "HIGH",
+            "impact": "Privilege Escalation",
+            "confidence": "HIGH",
+            "reason": "World-writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        },
+        {
+            "type": "PATH_HIJACK",
+            "path": "/home/devesh/go/bin",
+            "risk": "MEDIUM",
+            "impact": "Privilege Escalation",
+            "confidence": "MEDIUM",
+            "reason": "Writable directory present in PATH"
+        }
+    ],
+    "attack_chains": [
+        {
+            "entry_service": "UNKNOWN",
+            "port": 323,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "UNKNOWN",
+            "attack_steps": [
+                "Exploit exposed UNKNOWN service on port 323",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        },
+        {
+            "entry_service": "DNS",
+            "port": 53,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "LOW",
+            "attack_steps": [
+                "Exploit exposed DNS service on port 53",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        },
+        {
+            "entry_service": "PostgreSQL",
+            "port": 5432,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "HIGH",
+            "attack_steps": [
+                "Exploit exposed PostgreSQL service on port 5432",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        },
+        {
+            "entry_service": "UNKNOWN",
+            "port": 1883,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "UNKNOWN",
+            "attack_steps": [
+                "Exploit exposed UNKNOWN service on port 1883",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        },
+        {
+            "entry_service": "Redis",
+            "port": 6379,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "CRITICAL",
+            "attack_steps": [
+                "Exploit exposed Redis service on port 6379",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Execution",
+                    "technique": "Command and Scripting Interpreter",
+                    "id": "T1059"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        },
+        {
+            "entry_service": "DNS",
+            "port": 53,
+            "exposure": "EXTERNAL_CONFIRMED",
+            "base_risk": "LOW",
+            "attack_steps": [
+                "Exploit exposed DNS service on port 53",
+                "Abuse docker group membership to escape container"
+            ],
+            "final_impact": "ROOT_COMPROMISE",
+            "confidence": "HIGH",
+            "mitre_attack": [
+                {
+                    "tactic": "Initial Access",
+                    "technique": "Exploit Public-Facing Application",
+                    "id": "T1190"
+                },
+                {
+                    "tactic": "Privilege Escalation",
+                    "technique": "Escape to Host",
+                    "id": "T1611"
+                },
+                {
+                    "tactic": "Impact",
+                    "technique": "Privilege Account Abuse",
+                    "id": "T1078"
+                }
+            ]
+        }
+    ],
+    "recommendations": [
+        {
+            "priority": "IMMEDIATE",
+            "issue": "UNKNOWN exposed on port 323",
+            "action": "Restrict public exposure using firewall rules or disable if not required."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "DNS exposed on port 53",
+            "action": "Restrict public exposure using firewall rules or disable if not required."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "PostgreSQL exposed on port 5432",
+            "action": "Restrict public exposure using firewall rules or disable if not required."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "UNKNOWN exposed on port 1883",
+            "action": "Restrict public exposure using firewall rules or disable if not required."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "Redis exposed on port 6379",
+            "action": "Restrict public exposure using firewall rules or disable if not required."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "Unrestricted sudo access",
+            "action": "Restrict sudo permissions using least privilege principle."
+        },
+        {
+            "priority": "IMMEDIATE",
+            "issue": "User in docker group",
+            "action": "Remove user from docker group or enforce rootless containers."
+        },
+        {
+            "priority": "HIGH",
+            "issue": "Writable directory in PATH",
+            "action": "Remove write permissions or reorder PATH to prevent hijacking."
+        }
+    ],
+    "executive_summary": "This system currently presents a very high security risk. The overall security score is 9.49/10, indicating a 94.9% modeled likelihood of compromise if exploited. There are 1 critical and 1 high-risk findings identified. If left unaddressed, attackers could potentially gain elevated access to the system. Immediate remediation of critical findings is strongly recommended."
+}
